@@ -35,6 +35,8 @@ namespace UserMaintenance
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnAdd2 = new System.Windows.Forms.Button();
+         
+            this.btnAdd3 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listBox1
@@ -74,10 +76,10 @@ namespace UserMaintenance
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(674, 308);
+            this.btnAdd.Location = new System.Drawing.Point(650, 260);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(86, 31);
+            this.btnAdd.Size = new System.Drawing.Size(160, 60);
             this.btnAdd.TabIndex = 5;
             this.btnAdd.Text = "button1";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -85,19 +87,35 @@ namespace UserMaintenance
             // 
             // btnAdd2
             // 
-            this.btnAdd2.Location = new System.Drawing.Point(666, 390);
+            this.btnAdd2.Location = new System.Drawing.Point(650, 360);
+            this.btnAdd2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAdd2.Name = "btnAdd2";
-            this.btnAdd2.Size = new System.Drawing.Size(94, 29);
+            this.btnAdd2.Size = new System.Drawing.Size(160, 60);
             this.btnAdd2.TabIndex = 6;
             this.btnAdd2.Text = "button2";
             this.btnAdd2.UseVisualStyleBackColor = true;
             this.btnAdd2.Click += new System.EventHandler(this.btnAdd2_Click);
+            
+            //
+            // btnAdd3
+            // 
+            this.btnAdd3.Location = new System.Drawing.Point(650, 460);
+            this.btnAdd3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnAdd3.Name = "btnAdd3";
+            this.btnAdd3.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnAdd3.Size = new System.Drawing.Size(160, 60);
+            this.btnAdd3.TabIndex = 8;
+            this.btnAdd3.Text = "button3";
+            this.btnAdd3.UseVisualStyleBackColor = true;
+            this.btnAdd2.Click += new System.EventHandler(this.btnAdd3_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(914, 600);
+            this.Controls.Add(this.btnAdd3);
+            
             this.Controls.Add(this.btnAdd2);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.textBox2);
@@ -121,6 +139,8 @@ namespace UserMaintenance
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnAdd2;
+      
+        private System.Windows.Forms.Button btnAdd3;
     }
 }
 

@@ -57,8 +57,22 @@ namespace UserMaintenance
                     {
                         sw.WriteLine($"{u.ID};{u.FullName}");
                     }
-}
+                }
             }
         }
+
+
+        private void btnAdd3_Click(object sender, EventArgs e)
+        {
+            var selectID = ((Guid)listBox1.SelectedValue);
+            Console.WriteLine(selectID);
+
+            var userSelect = (from u in users
+                              where selectID == u.ID
+                              select u).FirstOrDefault(); 
+            users.Remove(userSelect);
+
+        }
+
     }
 }
