@@ -69,6 +69,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="bin\Debug\ramen.csv" />
     <None Include="Properties\DataSources\Brand.datasource" />
     <None Include="Properties\DataSources\Country.datasource" />
     <None Include="Properties\DataSources\Ramen.datasource" />

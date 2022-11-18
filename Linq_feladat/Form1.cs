@@ -120,6 +120,7 @@ namespace Linq_feladat
 
         }
 
+
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             GetCountries();
