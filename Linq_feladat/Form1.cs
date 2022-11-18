@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Linq_feladat
 {
@@ -21,6 +22,7 @@ namespace Linq_feladat
         {
             InitializeComponent();
             LoadData("ramen.csv");
+            GetCountries();
 
         }
 
@@ -81,5 +83,47 @@ namespace Linq_feladat
             }
             return ered;
         }
+
+        void GetCountries()
+        {
+            var ered = from c in countries
+                       where c.Name.Contains(textBox1.Text)
+                       orderby c.Name
+                       select c;
+            listBox1.DataSource = ered.ToList();
+            listBox1.DisplayMember = "Name";
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Country orszag = (Country)listBox1.SelectedItem;
+            if (orszag == null)
+            {
+                return;
+            }
+            var ered = from r in ramens
+                       where r.CountryFK == orszag.ID
+                       select r;
+            var ered2 = from d in ered
+                        group d.Rating by d.Brand.Name
+                        into f
+                        select new
+                        {
+                            markanev = f.Key,
+                            atlag = Math.Round(f.Average(), 2)
+                        };
+            var ered3 = from h in ered2
+                        orderby h.atlag descending
+                        select h;
+            dataGridView1.DataSource = ered3.ToList();
+
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            GetCountries();
+        }
+
     }
 }
