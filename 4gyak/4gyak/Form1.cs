@@ -18,12 +18,49 @@ namespace _4gyak
         List<Flat> flats;
         RealEstateEntities re = new RealEstateEntities();
 
+        Excel.Application xlApp; // A Microsoft Excel alkalmazás
+        Excel.Workbook xlWB; // A létrehozott munkafüzet
+        Excel.Worksheet xlSheet; // Munkalap a munkafüzeten belül
+
 
         void LoadData()
         {
             flats = re.Flat.ToList();
         }
 
+
+        void CreateExcel()
+        {
+            try
+            {
+                xlApp = new Excel().Application();
+                xlWB = xlApp.workbooks.Add();
+                xlSheet = xlWB.ActiveSheet;
+
+
+                CreateTable();
+
+
+                xlApp.Visible = true;
+                xlApp.UserControl = true;
+            }
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Source + '\n' + ex.Message);
+                xlWB.Close(false);
+                xlApp.Quite();
+                xlApp = null;
+                xlWB = null;
+            }
+
+        }
+
+        private void CreateTable()
+        {
+            ///throw new NotImplementedException();
+        }
 
         public Form1()
         {
